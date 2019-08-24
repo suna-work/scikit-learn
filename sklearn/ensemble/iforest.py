@@ -401,6 +401,7 @@ class IsolationForest(BaseBagging, OutlierMixin):
 
         chunk_n_rows = get_chunk_n_rows(row_bytes=16 * self._max_features,
                                         max_n_rows=n_samples)
+
         slices = gen_batches(n_samples, chunk_n_rows)
 
         scores = np.zeros(n_samples, order="f")
