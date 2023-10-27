@@ -1,0 +1,14 @@
+name: Fork scikit-learn
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - scikit-learn-bot-fork-action
+
+jobs:
+  fork:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh repo sync scikit-learn-bot/scikit-learn
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
